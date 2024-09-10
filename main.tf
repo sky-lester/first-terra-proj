@@ -3,7 +3,7 @@ provider "aws" {
 }
 
 resource "aws_instance" "test-instance" {
-  ami           = "ami-01811d4912b4ccb26" # ubuntu ami
+  ami           = var.ami_id
   instance_type = "t2.micro"
   tags = {
     Name = "EdgeInstance-terra"
