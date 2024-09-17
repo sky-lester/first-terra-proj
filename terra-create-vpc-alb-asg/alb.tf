@@ -14,6 +14,7 @@ resource "aws_lb_target_group" "alb_ec2_tg" {
   port     = 80
   protocol = "HTTP"
   vpc_id   = aws_vpc.custom_vpc.id
+
   tags = {
     Name = "alb_ec2_tg"
   }
@@ -66,7 +67,7 @@ resource "aws_autoscaling_group" "ec2_webserver_asg" {
     id      = aws_launch_template.ec2_lt.id
     version = "$Latest"
   }
-  health_check_type = "EC2"
+  health_check_type = "ELB"
 }
 
 output "alb_dns_name" {
