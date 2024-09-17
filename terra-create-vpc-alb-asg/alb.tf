@@ -39,6 +39,7 @@ resource "aws_launch_template" "ec2_lt" {
   name          = "ec2_lt"
   image_id      = "ami-01811d4912b4ccb26"
   instance_type = "t2.micro"
+  key_name = "terraform-keypair"
   network_interfaces {
     associate_public_ip_address = true
     security_groups             = [aws_security_group.ec2_sg.id]
