@@ -39,6 +39,7 @@ resource "aws_instance" "test_instance" {
   depends_on      = [aws_security_group.terra_sg]
   vpc_security_group_ids = [aws_security_group.terra_sg.id]
   # security_groups = [aws_security_group.terra_sg.name]
+  user_data = filebase64("userdata.sh")
   tags = {
     Name = "terra-instance"
   }
